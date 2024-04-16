@@ -9,7 +9,7 @@ export default function updateStudentGradeByCity(
   return studentsList
     .filter((student) => student.location === city)
     .map((student) => {
-      const ng = newGrades.filter((grade) => grade.studentId === student.id);
+      const ng = newGrades.find((grade) => grade.studentId === student.id);
       if (ng) {
         return {
           ...student,
