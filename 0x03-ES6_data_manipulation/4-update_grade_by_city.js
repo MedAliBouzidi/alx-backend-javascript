@@ -6,9 +6,10 @@ export default function updateStudentGradeByCity(
   if (!Array.isArray(studentsList)) {
     return [];
   }
-  return studentsList.map((student) => {
-    if (student.location === city) {
-      const ng = newGrades.find((grade) => grade.studentId === student.id);
+  return studentsList
+    .filter((student) => student.location === city)
+    .map((student) => {
+      const ng = newGrades.filter((grade) => grade.studentId === student.id);
       if (ng) {
         return {
           ...student,
@@ -16,6 +17,5 @@ export default function updateStudentGradeByCity(
         };
       }
       return { ...student, grade: 'N/A' };
-    }
-  });
+    });
 }
