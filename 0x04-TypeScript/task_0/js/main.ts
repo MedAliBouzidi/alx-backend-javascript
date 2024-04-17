@@ -23,6 +23,7 @@ const studentsList: Student[] = [student1, student2];
 
 const table: HTMLTableElement = document.createElement("table");
 const thead: HTMLTableSectionElement = document.createElement("thead");
+const tbody: HTMLTableSectionElement = document.createElement("tbody");
 const th1: HTMLTableHeaderCellElement = document.createElement("th");
 const th2: HTMLTableHeaderCellElement = document.createElement("th");
 
@@ -60,4 +61,4 @@ studentsList.forEach((student) => {
   table.append(row);
 });
 
-body.append(table);
+tbody.append(table);
