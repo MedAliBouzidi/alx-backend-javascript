@@ -1,7 +1,7 @@
 const readDatabase = require('../utils');
 
 class StudentsController {
-  static getAllStudents = (_, response) => {
+  static getAllStudents(_, response) {
     readDatabase(process.argv[2].toString())
       .then((students) => {
         const output = [];
@@ -18,9 +18,9 @@ class StudentsController {
       .catch(() => {
         response.status(500).send('Cannot load the database');
       });
-  };
+  }
 
-  static getAllStudentsByMajor = (request, response) => {
+  static getAllStudentsByMajor(request, response) {
     const field = request.params.major;
     readDatabase(process.argv[2].toString())
       .then((students) => {
@@ -33,7 +33,7 @@ class StudentsController {
       .catch(() => {
         response.status(500).send('Cannot load the database');
       });
-  };
+  }
 }
 
 module.exports = StudentsController;
