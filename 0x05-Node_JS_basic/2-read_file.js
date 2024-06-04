@@ -8,9 +8,9 @@ const countStudents = (filePath) => {
   try {
     const content = fs.readFileSync(filePath, { encoding: 'utf-8' });
     const lines = content.toString().split('\n');
-    for (let i = 0; i < lines.length; i++) {
+    for (let i = 0; i < lines.length; i += 1) {
       if (lines[i]) {
-        length++;
+        length += 1;
         const field = lines[i].toString().split(',');
         if (Object.prototype.hasOwnProperty.call(students, field[3])) {
           students[field[3]].push(field[0]);
@@ -18,7 +18,7 @@ const countStudents = (filePath) => {
           students[field[3]] = [field[0]];
         }
         if (Object.prototype.hasOwnProperty.call(fields, field[3])) {
-          fields[field[3]]++;
+          fields[field[3]] += 1;
         } else {
           fields[field[3]] = 1;
         }
